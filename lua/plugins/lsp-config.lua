@@ -29,10 +29,21 @@ return {
         capabilities = capabilities,
       })
 
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-      vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-  end,
+      local lsp = vim.lsp
+      local bind = vim.keymap.set
+
+      bind("n", "<LEADER>ca", lsp.buf.code_action, {})
+      bind("n", "<LEADER>rn", lsp.buf.rename, {})
+      bind("n", "<LEADER>td", lsp.buf.type_definition, {})
+      bind("n", "<LEADER>ds", require("telescope.builtin").lsp_document_symbols, {})
+      bind("n", "<LEADER>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, {})
+
+      bind("n", "gd", lsp.buf.definition, {})
+      bind("n", "gr", require("telescope.builtin").lsp_references, {})
+      bind("n", "gi", require("telescope.builtin").lsp_implementations, {})
+      bind("n", "gD", lsp.buf.declaration, {})
+      bind("n", "K", lsp.buf.hover, {})
+      bind("i", "<c-k>", lsp.buf.signature_help, {})
+    end,
   },
 }
