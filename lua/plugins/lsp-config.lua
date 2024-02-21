@@ -28,6 +28,12 @@ return {
       lspconfig.tsserver.setup({
         capabilities = capabilities,
       })
+      lspconfig.ruby_ls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.rubocop.setup({
+        capabilities = capabilities,
+      })
 
       local lsp = vim.lsp
       local bind = vim.keymap.set
