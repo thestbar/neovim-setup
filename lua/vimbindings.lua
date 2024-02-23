@@ -50,6 +50,7 @@ for option, setting in pairs(options) do
   vim.opt[option] = setting
 end
 
+-- Basic bindings
 local bind = vim.keymap.set
 
 vim.g.mapleader = " "
