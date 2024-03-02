@@ -11,27 +11,40 @@ return {
       "nvim-lua/plenary.nvim",
     },
     keys = {
-      { "<LEADER>gd", "<CMD>VGit buffer_diff_preview<CR>", mode = "n" },
-      { "<LEADER>gh", "<CMD>VGit buffer_history_preview<CR>", mode = "n" },
-      { "<LEADER>gn", "<CMD>VGit hunk_down<CR>", mode = "n" },
-      { "<LEADER>gp", "<CMD>VGit hunk_up<CR>", mode = "n" },
-      { "<LEADER>gl", "<CMD>VGit toggle_live_blame<CR>", mode = "n" },
+      { "<leader>gd", ":VGit buffer_diff_preview<CR>", mode = "n" },
+      { "<leader>gh", ":VGit buffer_history_preview<CR>", mode = "n" },
+      { "<leader>gn", ":VGit hunk_down<CR>", mode = "n" },
+      { "<leader>gp", ":VGit hunk_up<CR>", mode = "n" },
     },
     config = function()
       require("vgit").setup({
         settings = {
+          -- Use gitsigns for blame
           live_blame = {
-            enabled = true,
+            enabled = false,
           },
           authorship_code_lens = {
             enabled = false,
           },
           scene = {
-            diff_preference = 'split',
-          }
+            diff_preference = "split",
+          },
         },
       })
     end,
   },
-}
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup({
+        current_line_blame = true,
+        current_line_blame_opts = {
+          delay = 0,
+          virt_text_priority = 1000,
+        },
+      })
 
+      vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {})
+    end,
+  },
+}
