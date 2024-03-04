@@ -43,7 +43,6 @@ return {
       bind("n", "gi", require("telescope.builtin").lsp_implementations, {})
       bind("n", "gD", lsp.buf.declaration, {})
       bind("n", "K", lsp.buf.hover, {})
-      bind("i", "<c-k>", lsp.buf.signature_help, {})
     end,
   },
 }
