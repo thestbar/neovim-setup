@@ -19,20 +19,14 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.tsserver.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.ruby_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.rubocop.setup({
-        capabilities = capabilities,
+      require("mason-lspconfig").setup_handlers({
+        function(server_name)
+          local default_config = {
+            capabilities = capabilities,
+          }
+
+          lspconfig[server_name].setup(vim.tbl_extend("force", default_config, {}))
+        end,
       })
 
       local lsp = vim.lsp
