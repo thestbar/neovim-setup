@@ -12,6 +12,7 @@ return {
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
       vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
       vim.keymap.set("n", "<leader>fh", builtin.oldfiles, {})
+      vim.keymap.set("n", "<leader>fp", builtin.pickers, {})
 
       local default = function(title)
         return {
