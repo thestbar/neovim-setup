@@ -15,6 +15,7 @@ return {
       c = { "clang-format" },
       h = { "clang-format" },
       hpp = { "clang-format" },
+      glsl = { "glsl_analyzer" },
     },
     format = {
       stop_after_first = true,
