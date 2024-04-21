@@ -10,6 +10,10 @@ return {
       javascriptreact = { { "prettierd", "prettier" } },
       css = { { "prettierd", "prettier" } },
       scss = { { "prettierd", "prettier" } },
+      cpp = { "clang-format" },
+      c = { "clang-format" },
+      h = { "clang-format" },
+      hpp = { "clang-format" },
     },
   },
   keys = {
