@@ -5,6 +5,9 @@ return {
       options = {
         theme = "dracula",
       },
+      winbar = {
+        lualine_c = { "aerial" },
+      },
     })
   end,
 }
