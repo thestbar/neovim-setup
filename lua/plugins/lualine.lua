@@ -3,7 +3,8 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "dracula",
+        section_separators = "",
+        component_separators = "",
       },
       winbar = {
         lualine_c = { "aerial" },
