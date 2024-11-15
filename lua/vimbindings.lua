@@ -7,6 +7,8 @@ vim.bo.softtabstop = 2
 vim.cmd("set number")
 vim.cmd("autocmd InsertEnter * :set norelativenumber")
 vim.cmd("autocmd InsertLeave * :set relativenumber")
+-- Define the cursor shape
+vim.opt.guicursor = "n-v-i-c:block-Cursor"
 
 -- Neovim general configurations
 local options = {                  -- :help options
