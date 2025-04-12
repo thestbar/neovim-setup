@@ -11,5 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Disable unused providers
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+
 require("vimbindings")
 require("lazy").setup("plugins")
