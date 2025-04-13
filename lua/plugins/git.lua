@@ -1,5 +1,7 @@
 return {
   {
+    -- Needs to add configuration for git-conflict.nvim, check it out.
+    -- It has useful stuff.
     "akinsho/git-conflict.nvim",
     config = function()
       require("git-conflict").setup()
