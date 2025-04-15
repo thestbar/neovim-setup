@@ -7,7 +7,47 @@ return {
     animate = { enabled = false },
     bigfile = { enabled = true },
     bufdelete = { enabled = true },
-    dashboard = { enabled = false },
+    dashboard = {
+      enabled = true,
+      preset = {
+        header = [[
+=================     ===============     ===============   ========  ========
+\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
+||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
+|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
+||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
+|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
+||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
+|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
+||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
+||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
+||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
+||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
+||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
+||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
+||   .=='    _-'          `-__\._-'         `-_./__-'         `' |. /|  |   ||
+||.=='    _-'                                                     `' |  /==.||
+=='    _-'                                                            \/   `==
+\   _-'                                                                `-_   /
+ `''                                                                      ``' 
+        ]],
+        keys = {
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          {
+            icon = " ",
+            key = "c",
+            desc = "Config",
+            action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+          },
+          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+          { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
+      },
+    },
     debug = { enabled = false },
     dim = { enabled = false },
     explorer = { enabled = true },
@@ -29,7 +69,16 @@ return {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      win = {
+        input = {
+          keys = {
+            ["<C-l>"] = { " -- -g !*.rb", mode = { "i" }, expr = true, desc = "remove rspec files" },
+          },
+        },
+      },
+    },
     profiler = { enabled = true },
     quickfile = { enabled = true },
     rename = { enabled = true },
@@ -64,11 +113,77 @@ return {
       desc = "Notification History",
     },
     {
-      "<leader>ne",
+      "<leader>e",
       function()
         Snacks.explorer()
       end,
       desc = "File Explorer",
+    },
+    -- find
+    {
+      "<leader>fb",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Buffers",
+    },
+    {
+      "<leader>fc",
+      function()
+        Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+      end,
+      desc = "Find Config File",
+    },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.files()
+      end,
+      desc = "Find Files",
+    },
+    {
+      "<leader>fp",
+      function()
+        Snacks.picker.projects()
+      end,
+      desc = "Projects",
+    },
+    {
+      "<leader>fr",
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = "Recent",
+    },
+    -- Grep
+    {
+      "<leader>fl",
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = "Buffer Lines",
+    },
+    {
+      "<leader>fB",
+      function()
+        Snacks.picker.grep_buffers()
+      end,
+      desc = "Grep Open Buffers",
+    },
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Grep",
+    },
+    {
+      "<leader>fw",
+      function()
+        Snacks.picker.grep_word()
+      end,
+      desc = "Visual selection or word",
+      mode = { "n", "x" },
     },
     -- git
     {
@@ -105,36 +220,6 @@ return {
         Snacks.picker.git_log_file()
       end,
       desc = "Git Log File",
-    },
-    -- Grep
-    {
-      "<leader>sb",
-      function()
-        Snacks.picker.lines()
-      end,
-      desc = "Buffer Lines",
-    },
-    {
-      "<leader>sB",
-      function()
-        Snacks.picker.grep_buffers()
-      end,
-      desc = "Grep Open Buffers",
-    },
-    {
-      "<leader>sg",
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = "Grep",
-    },
-    {
-      "<leader>sw",
-      function()
-        Snacks.picker.grep_word()
-      end,
-      desc = "Visual selection or word",
-      mode = { "n", "x" },
     },
     -- search
     {
