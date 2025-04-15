@@ -90,7 +90,7 @@ return {
     toggle = { enabled = true },
     util = { enabled = true },
     win = { enabled = true },
-    words = { enabled = true },
+    words = { enabled = false },
     zen = { enabled = false },
     styles = {
       notification = {},
