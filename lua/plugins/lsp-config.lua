@@ -39,13 +39,7 @@ return {
       bind("n", "<LEADER>ca", lsp.buf.code_action, {})
       bind("n", "<LEADER>rn", lsp.buf.rename, {})
       bind("n", "<LEADER>td", lsp.buf.type_definition, {})
-      bind("n", "<LEADER>ds", require("telescope.builtin").lsp_document_symbols, {})
-      bind("n", "<LEADER>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, {})
 
-      bind("n", "gd", lsp.buf.definition, {})
-      bind("n", "gr", require("telescope.builtin").lsp_references, {})
-      bind("n", "gi", require("telescope.builtin").lsp_implementations, {})
-      bind("n", "gD", lsp.buf.declaration, {})
       bind("n", "K", lsp.buf.hover, {})
     end,
   },
