@@ -74,7 +74,7 @@ return {
       win = {
         input = {
           keys = {
-            ["<C-l>"] = { " -- -g !*.rb", mode = { "i" }, expr = true, desc = "remove rspec files" },
+            ["<C-l>"] = { " -- -g !*spec", mode = { "i" }, expr = true, desc = "remove rspec files" },
           },
         },
       },
