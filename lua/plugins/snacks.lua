@@ -144,9 +144,9 @@ return {
     {
       "<leader>fp",
       function()
-        Snacks.picker.projects()
+        Snacks.picker.get({ source = "files", tab = true })
       end,
-      desc = "Projects",
+      desc = "Displays grep history",
     },
     {
       "<leader>fr",
@@ -223,14 +223,14 @@ return {
     },
     -- search
     {
-      '<leader>s"',
+      '<leader>sr',
       function()
         Snacks.picker.registers()
       end,
       desc = "Registers",
     },
     {
-      "<leader>s/",
+      "<leader>sh",
       function()
         Snacks.picker.search_history()
       end,
@@ -272,7 +272,7 @@ return {
       desc = "Buffer Diagnostics",
     },
     {
-      "<leader>sh",
+      "<leader>s?",
       function()
         Snacks.picker.help()
       end,
@@ -372,13 +372,6 @@ return {
         Snacks.notifier.hide()
       end,
       desc = "Dismiss All Notifications",
-    },
-    {
-      "<c-t>",
-      function()
-        Snacks.terminal()
-      end,
-      desc = "Toggle Terminal",
     },
     {
       "]]",
