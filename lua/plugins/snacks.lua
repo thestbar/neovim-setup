@@ -133,7 +133,7 @@ return {
     { "<C-w>", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     { "<C-a>", function() Snacks.bufdelete({ force = true }) end, desc = "Force Delete Buffer" },
     { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-    { "<leader>gu", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" },},
+    { "<leader>gy", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" },},
     { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" },
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" },},
