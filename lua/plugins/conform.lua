@@ -10,13 +10,8 @@ return {
       javascriptreact = { "prettierd", "prettier" },
       css = { "prettierd", "prettier" },
       scss = { "prettierd", "prettier" },
+      prisma = { "prismals" },
     },
-    -- Add this option to make it stop after the first formatter succeeds
-    format_on_save = {
-      lsp_fallback = true,
-      timeout_ms = 500,
-    },
-    -- This option tells conform to try formatters in order until one succeeds
     format = {
       stop_after_first = true,
     },

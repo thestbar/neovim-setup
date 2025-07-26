@@ -21,10 +21,8 @@ unique neovim plugin. This way it is easier to maintain and understand the confi
 At least this applies to myself, feel free to experiment with everything!
 
 The most notable plugins that are used:
-- `goolord/alpha-nvim` for the startup screen.
 - `stevearc/aerial.nvim` for the breadcrumb navigation.
 - `akinsho/bufferline.nvim` for better buffer navigation using custom shortcuts and virtual tabs.
-- `echasnovski/mini.bufremove` makes my life easier when closing buffers.
 - `numToStr/Comment.nvim` for commenting code.
 - `hrsh7th/cmp-nvim-lsp` for autocompletion.
 - `github/copilot.vim` for copilot integration.
@@ -32,12 +30,11 @@ The most notable plugins that are used:
 - `williamboman/mason.nvim`, `williamboman/mason-lspconfig.nvim` and `neovim/nvim-lspconfig`
   for LSP configuration.
 - `nvim-lualine/lualine.nvim` for the statusline.
-- `nvim-neo-tree/neo-tree.nvim` for the file explorer.
 - `kevinhwang91/nvim-ufo` for better code folding.
 - `epwalsh/obsidian.nvim` for integration with Obsidian.
-- `nvim-telescope/telescope.nvim` for fuzzy finding.
 - `nvim-treesitter/nvim-treesitter` for syntax highlighting.
 - `lukas-reineke/virt-column.nvim` for virtual column support.
+- `folke/snacks.nvim` for dashboard, fuzzy searching, file management and more utilities.
 
 The 2 themes I like most are:
 - `catppuccin/nvim` 
