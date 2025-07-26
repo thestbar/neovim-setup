@@ -20,9 +20,11 @@ return {
       })
 
       local dap = require("dap")
-      local mason_registry = require("mason-registry")
-      local codelldb_root = mason_registry.get_package("codelldb"):get_install_path() .. "/extension/"
-      local codelldb_path = codelldb_root .. "adapter/codelldb"
+      local codelldb_path = vim.fn.stdpath("data") .. "/mason/packages/codelldb"
+      if not vim.loop.fs_stat(codelldb_path) then
+        vim.notify("codelldb not found at " .. codelldb_path, vim.log.levels.ERROR)
+        return
+      end
 
       dap.adapters.codelldb = function(on_adapter)
         -- This asks the system for a free port
