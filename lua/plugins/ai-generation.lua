@@ -8,7 +8,15 @@ return {
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
       -- See Configuration section for options
+      mappings = {
+        complete = {
+          insert = "<C-f>",
+        },
+      },
     },
-    -- See Commands section for default commands if you want to lazy load on them
+    keys = {
+      { "<leader>cpc", "<cmd>CopilotChat<cr>", desc = "Copilot Chat" },
+      { "<leader>cpm", "<cmd>CopilotChatModels<cr>", desc = "Select Copilot Chat Model" },
+    },
   },
 }
