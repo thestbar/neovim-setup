@@ -12,6 +12,8 @@ return {
       { "<leader>do", "<CMD>DapStepOver<CR>", mode = "n", remap = true },
       { "<leader>di", "<CMD>DapStepInto<CR>", mode = "n", remap = true },
       { "<leader>dr", "<CMD>DapToggleRepl<CR>", mode = "n", remap = true },
+      { "<leader>cmr", "<CMD>CMakeRun<CR>", mode = "n", remap = true },
+      { "<leader>cmb", "<CMD>CMakeBuild<CR>", mode = "n", remap = true },
     },
     config = function()
       require("dapui").setup()
