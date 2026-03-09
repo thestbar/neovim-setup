@@ -40,11 +40,11 @@ return {
     },
     daily_notes = {
       folder = "standups",
-      date_format = "%d-%m-%Y",
+      date_format = "%Y-%m-%d",
     },
     templates = {
       folder = "~/Documents/obsidian_vault/templates",
-      date_format = "%d-%m-%Y",
+      date_format = "%Y-%m-%d",
     },
   },
 }
