@@ -49,7 +49,7 @@ return {
     git = { enabled = true },
     gitbrowse = { enabled = true },
     -- Needs kitty, ghostty, or wezterm to work
-    image = { enabled = false },
+    image = { enabled = true },
     indent = {
       enabled = true,
       animate = { enabled = false },
