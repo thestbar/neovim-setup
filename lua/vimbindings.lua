@@ -10,6 +10,20 @@ vim.cmd("autocmd InsertLeave * :set relativenumber")
 -- Define the cursor shape
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
 
+-- Setup OSC 52 as clipboard provider
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+  },
+}
+vim.o.clipboard = "unnamedplus"
+
 -- Neovim general configurations
 local options = {                  -- :help options
   backup = false,                  -- Don't create a backup file
