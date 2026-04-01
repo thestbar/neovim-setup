@@ -51,7 +51,7 @@ return {
     -- Needs kitty, ghostty, or wezterm to work
     image = { enabled = true },
     indent = {
-      enabled = true,
+      enabled = false,
       animate = { enabled = false },
     },
     input = { enabled = true },
@@ -77,7 +77,7 @@ return {
     profiler = { enabled = true },
     quickfile = { enabled = true },
     rename = { enabled = true },
-    scope = { enabled = true },
+    scope = { enabled = false },
     scratch = { enabled = false },
     scroll = { enabled = false },
     statuscolumn = { enabled = false },

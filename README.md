@@ -2,6 +2,13 @@
 
 This is my personal neovim setup. I try to keep it clean and simple.
 
+## Prerequisites
+
+- **tree-sitter CLI** — required by `nvim-treesitter` (main branch) to compile parsers from source:
+  ```sh
+  brew install tree-sitter-cli
+  ```
+
 The plugin manager that is used is [lazy.nvim](https://github.com/folke/lazy.nvim.git).
 
 The structure of the repository is as follows:
