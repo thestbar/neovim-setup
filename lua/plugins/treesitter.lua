@@ -16,14 +16,26 @@ return {
       return vim.fn.filereadable(nvim_parser_dir .. lang .. ".so") == 1
     end
 
-    -- Auto-install or update the parser for the current filetype, skipping
-    -- languages whose parsers are already managed by Neovim itself.
     local available = ts.get_available()
+    local function is_installed(lang)
+      return vim.tbl_contains(ts.get_installed(), lang)
+    end
+
+    -- Update all currently installed parsers once at startup.
+    vim.api.nvim_create_autocmd("VimEnter", {
+      once = true,
+      callback = function()
+        pcall(vim.cmd, "TSUpdate")
+      end,
+    })
+
+    -- On FileType, only install the parser if it is not installed yet.
+    -- No updates at runtime — those are handled exclusively at startup above.
     vim.api.nvim_create_autocmd("FileType", {
       callback = function(ev)
         local lang = vim.treesitter.language.get_lang(vim.bo[ev.buf].filetype)
-        if lang and vim.tbl_contains(available, lang) and not is_nvim_bundled(lang) then
-          pcall(vim.cmd, "TSUpdate " .. lang)
+        if lang and vim.tbl_contains(available, lang) and not is_nvim_bundled(lang) and not is_installed(lang) then
+          pcall(vim.cmd, "TSInstall " .. lang)
         end
       end,
     })
