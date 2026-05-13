@@ -46,6 +46,13 @@ return {
       folder = "~/Documents/obsidian_vault/templates",
       date_format = "%Y-%m-%d",
     },
+    ui = { enable = false }, -- rendering handled by render-markdown.nvim
+    checkbox = {
+      enabled = true,
+      create_new = true,
+      order = { " ", "x", "!", ">", "~" },
+    },
+
     note_id_func = function(title)
       local slug = ""
       if title ~= nil then
