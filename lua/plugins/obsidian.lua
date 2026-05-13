@@ -46,5 +46,25 @@ return {
       folder = "~/Documents/obsidian_vault/templates",
       date_format = "%Y-%m-%d",
     },
+    note_id_func = function(title)
+      local slug = ""
+      if title ~= nil then
+        -- Lowercase, replace spaces/underscores with hyphens, strip non-alphanumeric chars
+        slug = title:lower():gsub("[%s_]+", "-"):gsub("[^%a%d%-]", "")
+        -- Collapse multiple hyphens and trim leading/trailing hyphens
+        slug = slug:gsub("%-+", "-"):gsub("^%-+", ""):gsub("%-+$", "")
+      end
+      -- Append a short random alphanumeric suffix for uniqueness
+      local suffix = ""
+      for _ = 1, 6 do
+        local n = math.random(0, 35)
+        suffix = suffix .. (n < 10 and tostring(n) or string.char(n - 10 + 97))
+      end
+      if slug ~= "" then
+        return slug .. "-" .. suffix
+      else
+        return suffix
+      end
+    end,
   },
 }
