@@ -10,7 +10,7 @@ return {
   },
   opts = {
     bullet = {
-      icons = { "●", "➜", "◉", "○" },
+      icons = { "•", "◦", "·", "‣" },
     },
     checkbox = {
       unchecked = { icon = "󰄱" },
