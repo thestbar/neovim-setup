@@ -1,8 +1,7 @@
 return {
-  "phaazon/hop.nvim",
-  event = "VeryLazy",
-  opts = {},
-  keys = {
-    { "s", "<CMD>HopChar2<CR>", mode = { "n", "v" } },
+  "smoka7/hop.nvim",
+  version = "*",
+  opts = {
+    keys = "etovxqpdygfblzhckisuran",
   },
 }
