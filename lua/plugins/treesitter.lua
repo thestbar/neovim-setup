@@ -21,10 +21,18 @@ return {
       return vim.tbl_contains(ts.get_installed(), lang)
     end
 
-    -- Update all currently installed parsers once at startup.
+    -- Parsers needed by snacks.image for rendering images in docs.
+    local ensure_installed = { "tsx", "vue", "svelte", "typst", "latex" }
+
+    -- Update all currently installed parsers and ensure the above are installed.
     vim.api.nvim_create_autocmd("VimEnter", {
       once = true,
       callback = function()
+        for _, lang in ipairs(ensure_installed) do
+          if vim.tbl_contains(available, lang) and not is_nvim_bundled(lang) and not is_installed(lang) then
+            pcall(vim.cmd, "TSInstall " .. lang)
+          end
+        end
         pcall(vim.cmd, "TSUpdate")
       end,
     })
