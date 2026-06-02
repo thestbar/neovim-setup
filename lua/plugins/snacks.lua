@@ -51,7 +51,7 @@ return {
     -- Needs kitty, ghostty, or wezterm to work
     image = { enabled = true },
     indent = {
-      enabled = false,
+      enabled = true,
       animate = { enabled = false },
     },
     input = { enabled = true },
@@ -77,7 +77,7 @@ return {
     profiler = { enabled = true },
     quickfile = { enabled = true },
     rename = { enabled = true },
-    scope = { enabled = false },
+    scope = { enabled = true },
     scratch = { enabled = false },
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
@@ -85,7 +85,7 @@ return {
     toggle = { enabled = true },
     util = { enabled = true },
     win = { enabled = true },
-    words = { enabled = false },
+    words = { enabled = true },
     zen = { enabled = false },
     styles = {
       notification = {},
