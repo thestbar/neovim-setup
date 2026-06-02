@@ -22,7 +22,7 @@ return {
     end
 
     -- Parsers needed by snacks.image for rendering images in docs.
-    local ensure_installed = { "tsx", "vue", "svelte", "typst", "latex" }
+    local ensure_installed = { "tsx", "vue", "svelte", "typst", "latex", "regex" }
 
     -- Update all currently installed parsers and ensure the above are installed.
     vim.api.nvim_create_autocmd("VimEnter", {
